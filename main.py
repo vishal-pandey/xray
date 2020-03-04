@@ -1,5 +1,4 @@
 from flask import Flask,request, render_template
-# from flask_cors import CORS
 import numpy as np 
 import matplotlib.pyplot as plt
 import json
@@ -7,8 +6,6 @@ from werkzeug import secure_filename
 from keras.models import load_model
 from keras import backend as keras
 import cv2
-
-# from cStringIO import StringIO
 import base64
 
 
