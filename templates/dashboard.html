@@ -1,6 +1,13 @@
 <!doctype html>
 <html>
    <body>
-      {{img}}
+   		<div>
+			<img src="{{ url_for('static', filename = 'frame/%s' % img) }}">
+   			<h3>Input</h3>
+   		</div>
+   		<div>
+			<img src="{{ url_for('static', filename = 'mask/%s' % img) }}">
+			<h3>Output</h3>
+   		</div>
    </body>
 </html>

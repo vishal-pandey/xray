@@ -34,19 +34,20 @@ def index():
 
   if request.method == 'POST':
       f = request.files['file']
-      f.save("images/"+secure_filename(f.filename))
+      f.save("static/"+secure_filename(f.filename))
 
       if f.filename.split('.')[-1] == 'jpeg':
-        img_path ="images/"+secure_filename(f.filename)
+        img_path ="static/"+secure_filename(f.filename)
+        X_shape=512
         x_im = cv2.resize(cv2.imread(img_path),(X_shape,X_shape))[:,:,0]
         op = model.predict((x_im.reshape(1, 512, 512, 1)-127.0)/127.0)
         
         plt.imshow(x_im, cmap="bone", label="Input Image")
-        plt.savefig('images/frame/'+secure_filename(f.filename))
+        plt.savefig('static/frame/'+secure_filename(f.filename))
 
         plt.imshow(x_im, cmap="bone", label="Output Image")
-        plt.imshow(op.reshape(512, 512), alpha=0.5, cmap="bone_r")
-        plt.savefig('images/mask/'+secure_filename(f.filename))
+        plt.imshow(op.reshape(512, 512), alpha=0.5, cmap="jet")
+        plt.savefig('static/mask/'+secure_filename(f.filename))
 
 
       return render_template('dashboard.html', img = secure_filename(f.filename))
