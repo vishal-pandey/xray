@@ -3,11 +3,11 @@
    <body>
    	<section class="container">
    		<div>
-			<img src="{{ url_for('static', filename = 'http://127.0.0.1:8000/static/describe.png') }}">
+			<img src="{{ url_for('static', filename = 'frame/%s' % img) }}">
    			<h3>Input</h3>
    		</div>
    		<div>
-			<img src="{{ url_for('static', filename = 'http://127.0.0.1:8000/static/describe.png') }}">
+			<img src="{{ url_for('static', filename = 'mask/%s' % img) }}">
 			<h3>Output</h3>
    		</div>
    	</section>
